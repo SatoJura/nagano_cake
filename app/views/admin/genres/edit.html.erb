@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-7">
+      <h6>ジャンル名</h6>
+      <%= form_with model:@genre,url:admin_genre_path(@genre), local:true do |f| %>
+        <%= f.text_field :name, class:"form_control"%>
+        <%= f.submit "変更を保存", class:"btn btn-sm btn-success" %>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+</div>

@@ -5,8 +5,9 @@ Rails.application.routes.draw do
    passwords:      'admins/passwords'
  }
 
- namespace :admin do
-     resources :genres, only: [:index, :create, :update, :edit]
+  namespace :admin do
+    resources :genres, only: [:index, :create, :update, :edit]
+    resources :items, except: [:destroy]
  end
 
   # 会員側

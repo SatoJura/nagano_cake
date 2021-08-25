@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th>会員ID</th>
+            <th><span class="border-bottom">氏名</span></th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @customers.each do |customer| %>
+          <tr>
+            <td></td>
+            <td><%= customer.last_name %><%= customer.first_name %></td>
+            <td><%= customer.email %></td>
+            <td><%= customer.is_active %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

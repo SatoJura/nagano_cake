@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <% @item.each do |item| %>
+      <div class="col-md-4">
+        <%= attachment_image_tag @item, :image, size:"100x60", format: 'jpeg', fallback: "no_image_clock.jpg" %>
+      </div>
+      <div class="col-md-7 offset-md-1">
+        <table class="table table-borderless">
+          <tbody
+            <tr>
+              <td>商品名</td>
+              <td><%= item.name %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+  </div>
+</div>

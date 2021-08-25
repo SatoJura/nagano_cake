@@ -23,8 +23,8 @@
         <!--ジャンルの選択肢　未-->
         <div>
           <div class="row form-group">
-          <%= f.label(:genre, "ジャンル") %>
-          <%= f.select :genre,[],include_blank:"--選択してください" %>
+          <%= f.label(:genre_id, "ジャンル") %>
+          <%= f.select :genre_id,[],include_blank:"--選択してください" %>
         </div>
         <!--円　が横並びにならない-->
         <div class="row form-group">
@@ -34,11 +34,15 @@
           </div>
         </div>
         <!--販売ステータス　ラジオボックス？　未-->
-        <div class="row radio-inline">
+        <div class="row">
           <%= f.label(:is_active, "販売ステータス") %>
           <div class="col form-check">
+            <%= f.radio_button :is_active, true %>
+            <%= f.label :is_active, "販売中", value: true %>
           </div>
-          <div class="row form-check">
+          <div class="col form-check">
+            <%= f.radio_button :is_active, false %>
+            <%= f.label :is_active, "販売停止中", value: false %>
           </div>
         </div>
         <div class="form-group">

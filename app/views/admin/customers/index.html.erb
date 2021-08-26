@@ -14,7 +14,7 @@
           <% @customers.each do |customer| %>
           <tr>
             <td></td>
-            <td><%= customer.last_name %><%= customer.first_name %></td>
+            <td><%= link_to customer.last_name && customer.first_name %></td>
             <td><%= customer.email %></td>
             <td><%= customer.is_active %></td>
           </tr>

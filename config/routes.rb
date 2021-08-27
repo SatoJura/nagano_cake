@@ -28,9 +28,9 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'about' => "homes#about"
     
-    resources :orders, only: [:new, :create, :index, :show]
     post 'orders/confirm'
     get 'orders/thanks'
+    resources :orders, only: [:new, :create, :index, :show]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

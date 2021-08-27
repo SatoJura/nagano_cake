@@ -1,14 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'orders/show'
-    get 'orders/update'
-  end
-  namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
-    get 'customers/update'
-  end
   # 管理者側
   devise_for :admins, controllers: {
    ssessions:      'admins/sessions',

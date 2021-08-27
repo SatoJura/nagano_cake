@@ -24,6 +24,13 @@ Rails.application.routes.draw do
     get "customers/my_page" => "customers#show"
     get "customers/unsubscribe" => "customers#unsubscribe"
     patch "customers/change" => "customers#change"
+    
+    root to: 'homes#top'
+    get 'about' => "homes#about"
+    
+    resources :orders, only: [:new, :create, :index, :show]
+    post 'orders/confirm'
+    get 'orders/thanks'
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

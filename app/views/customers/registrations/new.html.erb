@@ -2,6 +2,34 @@
 
 <%= form_with model: @customer, url: customer_registration_path, id: 'new_cutomer', class: 'new_customer', local: true  do |f| %>
   <%= render "customers/shared/error_messages", resource: resource %>
+  
+    <div class="field">
+    <div>
+      <%= f.label(:full_name, "名前") %>
+    </div>
+    <div>
+      <%= f.label :last_name, "(姓)" %>
+      <%= f.text_field :last_name, autofocus: true %>
+    </div>
+    <div>
+      <%= f.label :first_name, "(名)" %>
+      <%= f.text_field :first_name, autofocus: true %>
+    </div>
+  </div>
+
+  <div class="field">
+    <div>
+      <%= f.label(:full_name_kana, "フリガナ") %>
+    </div>
+    <div>
+      <%= f.label :last_name_kana, "(セイ)" %>
+      <%= f.text_field :last_name_kana, autofocus: true %>
+    </div>
+    <div>
+      <%= f.label :first_name_kana, "(メイ)" %>
+      <%= f.text_field :first_name_kana, autofocus: true %>
+    </div>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />

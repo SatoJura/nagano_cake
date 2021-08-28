@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     post 'orders/confirm'
     get 'orders/thanks'
     resources :orders, only: [:new, :create, :index, :show]
+    
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

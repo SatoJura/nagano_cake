@@ -4,6 +4,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
+    @order = Order.new(order_params)
+    @order.delivery_fee = 800
   end
 
   def thanks
@@ -16,5 +18,10 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+  end
+  
+  private
+  def order_params
+    params.require(:order).permit(:customer_id,:postal_code,:address,:name,:delivery_fee,:total_payment,:payment_method,:order_status)
   end
 end

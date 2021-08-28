@@ -13,12 +13,8 @@ Rails.application.routes.draw do
  end
 
   # 会員側
-  devise_for :customers, controllers: {
-    sessions:      'customers/sessions',
-    passwords:     'customers/passwords',
-    registrations: 'customers/registrations'
-  }
-
+  devise_for :customers
+  
   scope module: :public do
     resource :customers, only: [:edit, :update]
     get "customers/my_page" => "customers#show"

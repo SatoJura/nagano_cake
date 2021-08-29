@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # 管理者側
   devise_for :admins, controllers: {
    ssessions:      'admins/sessions',
@@ -27,6 +28,8 @@ Rails.application.routes.draw do
     post 'orders/confirm'
     get 'orders/thanks'
     resources :orders, only: [:new, :create, :index, :show]
+    
+    resources :items, only: [:index, :show]
     
   end
 

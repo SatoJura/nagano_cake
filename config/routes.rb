@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :show]
 
     delete 'cart_items/destroy_all'
-    resources :cart_item, only: [:index, :create, :update, :destroy]
+    resources :cart_items, only: [:index, :create, :update, :destroy]
 
   end
 

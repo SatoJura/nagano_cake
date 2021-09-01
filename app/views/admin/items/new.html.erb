@@ -31,8 +31,8 @@
           <div class="col-md-4">
             <%= f.label(:genre_id, "ジャンル") %>
           </div>
-          <div class="col-md-8">
-            <%= f.select :genre_id,[],include_blank:"--選択してください--" %>
+          <div class="col-md-8 ">
+            <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank:"--選択してください--" %>
           </div>
         </div>
         <div class="row mb-3 form-group">

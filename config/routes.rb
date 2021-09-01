@@ -1,12 +1,4 @@
 Rails.application.routes.draw do
-
-  namespace :public do
-    get 'addresses/index'
-    get 'addresses/edit'
-    get 'addresses/create'
-    get 'addresses/update'
-    get 'addresses/destroy'
-  end
   # 管理者側
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
@@ -41,6 +33,8 @@ Rails.application.routes.draw do
 
     delete 'cart_items/destroy_all'
     resources :cart_items, only: [:index, :create, :update, :destroy]
+    
+    resources :addresses, only: [:index, :create, :edit, :update, :destroy]
 
   end
 

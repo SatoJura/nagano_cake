@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+
   # 管理者側
   devise_for :admins, controllers: {
-   ssessions:      'admins/sessions',
-   passwords:      'admins/passwords'
+  ssessions:      'admins/sessions',
+  passwords:      'admins/passwords'
  }
 
   namespace :admin do

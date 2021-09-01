@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>会員者ログイン</h2>
+  <h4>管理者ログイン</h4>
 
 <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
   <div class="form-group row justify-content-center">
@@ -7,7 +7,7 @@
       <%= f.label :email, "メールアドレス" %>
     </div>
     <div class="col-md-4">
-      <%= f.email_field :email, autofocus: true, class: "form-control", autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, class: "form-control", autocomplete: "email", placeholder: "admin@admin" %>
     </div>
   </div>
 

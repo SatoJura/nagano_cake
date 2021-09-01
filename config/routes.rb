@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   # 管理者側
   devise_for :admins, controllers: {
-  ssessions:      'admins/sessions',
+  sessions:      'admins/sessions',
   passwords:      'admins/passwords'
  }
 

@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'addresses/index'
+    get 'addresses/edit'
+    get 'addresses/create'
+    get 'addresses/update'
+    get 'addresses/destroy'
+  end
   # 管理者側
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',

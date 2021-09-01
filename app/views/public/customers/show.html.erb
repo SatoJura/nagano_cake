@@ -1,59 +1,59 @@
 <div class="container">
+  <span class="row my-4">
+    <h4 class="offset-md-1 col-3">マイページ</h4>
+  </span>
   <div class="row mb-3 justify-content-start">
-    <label class="font-weight-bold col-2">登録情報</label>
-    <!--ボタンとリンク先が違うと思う(下の方２つも)-->
+    <label class="font-weight-bold col-1">登録情報</label>
     <div class="form-action col-2">
-      <%= link_to("customers/edit") do %>
-      <button class="btn btn-success" >編集する</bottun>
-      <% end %>
+      <%= link_to "編集する", edit_customers_path, class: "btn btn-success btn-md" %>
     </div>
   </div>
 
-  <%# @customer.each do |customer| %>
-  <div class="col-5 pl-0">
+  <% @customers.each do |customer| %>
+  <div class="col-8 pl-0">
     <table class="table table-bordered">
       <tbody>
         <tr>
-          <!--フルネームの入力-->
           <th class="table-active">氏名</td>
-          <td></td>
+          <td><%= customer.last_name %>　<%= customer.first_name %></td>
         </tr>
         <tr>
           <th class="table-active">カナ</td>
-          <td></td>
+          <td><%= customer.last_name_kana %>　<%= customer.first_name_kana %></td>
         </tr>
         <tr>
           <th class="table-active">郵便番号</td>
-          <td></td>
+          <td><%= customer.postal_code %></td>
         </tr>
         <tr>
           <th class="table-active">住所</td>
-          <td></td>
+          <td><%= customer.address %></td>
         </tr>
         <tr>
           <th class="table-active">電話番号</td>
-          <td></td>
+          <td><%= customer.telephone_number %></td>
         </tr>
         <tr>
           <th class="table-active">メールアドレス</td>
-          <td></td>
+          <td><%= customer.email %></td>
         </tr>
       </tbody>
     </table>
   </div>
-  <%# end %>
-  
+  <% end %>
+
   <!--url指定する（２）-->
   <div class="row my-3 justify-content-start">
-    <label class="font-weight-bold col-2">配送先</label>
+    <label class="font-weight-bold col-1">配送先</label>
     <div class="form-action col-2">
-      <%= link_to "一覧を見る", class:"btn btn-success" %>
+      <%= link_to "一覧を見る", edit_customers_path, class: "btn btn-primary btn-md" %>
     </div>
   </div>
   <div class="row justify-content-start">
-    <label class="font-weight-bold col-2">注文一覧</label>
+    <label class="font-weight-bold col-1">注文一覧</label>
     <div class="form-action col-2">
-      <%= link_to "一覧を見る", class:"btn btn-success" %>
+      <%= link_to "一覧を見る", orders_path, class: "btn btn-primary btn-md" %>
     </div>
   </div>
+
 </div>

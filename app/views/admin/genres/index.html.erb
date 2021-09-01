@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-7">
+    <div class="col-md-7 form-group form-inline">
       <h6>ジャンル名</h6>
-      <%= form_with model:@genre,url:admin_genres_path, local:true do |f| %>
+      <%= form_with model:@genre, url:admin_genres_path, local:true do |f| %>
         <%= f.text_field :name, class:"form_control", placeholder:"ジャンル名"%>
         <%= f.submit "新規登録", class:"btn btn-sm btn-success" %>
       <% end %>

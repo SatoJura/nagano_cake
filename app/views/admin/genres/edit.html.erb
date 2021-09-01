@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-7">
+    <div class="col-md-7 form-group form-inline">
       <h6>ジャンル名</h6>
       <%= form_with model:@genre, url:admin_genre_path(@genre), local:true do |f| %>
         <%= f.text_field :name, class:"form-control"%>

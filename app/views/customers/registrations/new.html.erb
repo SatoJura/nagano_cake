@@ -1,5 +1,7 @@
 <div class="container">
-<h2>Sign up</h2>
+  <span class="row my-3">
+    <h4>新規登録画面</h4>
+  </span>
 
 <%= form_with model: @customer, url: customer_registration_path, id: 'new_cutomer', class: 'new_customer', local: true  do |f| %>
   <%= render "customers/shared/error_messages", resource: resource %>
@@ -93,10 +95,16 @@
     </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "新規登録", class:"btn btn-sm btn-success" %>
+  <div class="actions row">
+    <div class="offset-md-4 col-md-3">
+    <%= f.submit "新規登録", class:"btn btn-md btn-success btn-block" %>
+    </div>
   </div>
 <% end %>
 
-<%= render "customers/shared/links" %>
+<span class="row my-3">
+  <h4>既に登録済みの方</h4>
+</span>
+
+<p><%= render "customers/shared/links" %>　からログインしてください。</p>
 </div>

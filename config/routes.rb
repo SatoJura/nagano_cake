@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   # 管理者側
   devise_for :admins, controllers: {
    ssessions:      'admins/sessions',
@@ -7,6 +6,7 @@ Rails.application.routes.draw do
  }
 
   namespace :admin do
+    get ''=> 'homes#top'
     resources :genres, only: [:index, :create, :update, :edit]
     resources :items, except: [:destroy]
     resources :orders, only: [:show, :update]

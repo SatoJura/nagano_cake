@@ -3,7 +3,9 @@ class Customer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
+  
+  enum is_active: { 有効: true, 退会: false}
+  
   def full_name
     self.last_name + " " + self.first_name
   end

@@ -5,7 +5,7 @@
         <thead class="thead-light">
           <tr>
             <th>会員ID</th>
-            <th><span class="border-bottom">氏名</span></th>
+            <th><span>氏名</span></th>
             <th>メールアドレス</th>
             <th>ステータス</th>
           </tr>
@@ -13,8 +13,8 @@
         <tbody>
           <% @customers.each do |customer| %>
           <tr>
-            <td></td>
-            <td><%= link_to customer.last_name && customer.first_name %></td>
+            <td><%= customer.id %></td>
+            <td><%= link_to customer.full_name, admin_customer_path(customer.id) %></td>
             <td><%= customer.email %></td>
             <td><%= customer.is_active %></td>
           </tr>

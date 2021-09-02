@@ -20,10 +20,9 @@
               <td>ジャンル</td>
               <td><%= item.genre.name %></td>
             </tr>
-            <!--税込・税抜き部分考える-->
             <tr>
               <td>税込価格</br>（税抜価格）</td>
-              <td class="align-middle"><%= item.price %>(<%= item.price %>)<span>円</span></td>
+              <td class="align-middle"><%= item.price.to_s(:delimited) %>(<%= item.add_tax_price.to_s(:delimited) %>)<span>円</span></td>
             </tr>
             <tr>
               <td>販売ステータス</td>

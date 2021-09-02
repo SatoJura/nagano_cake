@@ -43,11 +43,10 @@
       <%= f.label(:is_active, "販売ステータス") %>
     </div>
     <div class="col-md-8">
-      <div class="form-check form-check-inline">
+      <div class="radio-inline">
         <%= f.radio_button :is_active, "販売中" %>
-        <%= f.label :is_active, "販売中" %>
-      </div>
-      <div class="form-check form-check-inline">
+        <%= f.label :is_active, "販売中", class: "mr-3" %>
+
         <%= f.radio_button :is_active, "販売停止中" %>
         <%= f.label :is_active, "販売停止中" %>
       </div>

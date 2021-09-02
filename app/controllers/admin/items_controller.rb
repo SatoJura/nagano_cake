@@ -13,6 +13,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
+    @items = Item.all
     @item = Item.find(params[:id])
   end
 

@@ -1,17 +1,15 @@
-<!--ページ表示されない まだ新規投稿できてないから？-->
-
 <div class="container">
   <div class="row">
-    <% @item.each do |item| %>
+    <% @items.each do |item| %>
       <div class="col-md-4">
-        <%= attachment_image_tag @item, :image, size:"100x60", format: 'jpeg', fallback: "no_image_clock.jpg" %>
+        <%= attachment_image_tag @item, :image, size:"300x200", format: 'jpeg', fallback: "no_image_clock.jpg" %>
       </div>
 
-      <div class="col-md-7 offset-md-1">
+      <div class="col-md-7">
         <table class="table table-borderless">
           <tbody>
             <tr>
-              <td>商品名</td>
+              <td class="col-md-4">商品名</td>
               <td><%= item.name %></td>
             </tr>
             <tr>
@@ -20,21 +18,22 @@
             </tr>
             <tr>
               <td>ジャンル</td>
-              <td><%= item.genre %></td>
+              <td><%= item.genre.name %></td>
             </tr>
             <!--税込・税抜き部分考える-->
             <tr>
-              <td>税込価格（税抜価格）</td>
-              <td><%= item.price %><span>円</span></td>
+              <td>税込価格</br>（税抜価格）</td>
+              <td class="align-middle"><%= item.price %>(<%= item.price %>)<span>円</span></td>
             </tr>
             <tr>
               <td>販売ステータス</td>
-              <td><%= item.is_active %></td>
+              <td class="text-success font-weight-bold"><%= item.is_active_i18n %></td>
             </tr>
           </tbody>
         </table>
-        <!--編集ボタン作成-->
-        
+        <div class="offset-md-2">
+          <%= link_to "編集する", edit_admin_item_path(item), class:"btn btn-lg btn-success px-4" %>
+        </div>
       </div>
     <% end %>
   </div>

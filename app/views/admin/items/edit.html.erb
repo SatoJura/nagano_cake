@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+    <div class=" mx-auto">
+    <%= form_with model:@item, url:admin_item_path, local:true do |f| %>
+      <%= render :partial => 'item_form', :locals => {:f => f, :edit_flag => true} %>
+    <% end%>
+    </div>
+  </div>
+</div>

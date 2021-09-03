@@ -9,38 +9,36 @@
     </div>
   </div>
 
-  <% @customers.each do |customer| %>
   <div class="col-8 pl-0">
     <table class="table table-bordered">
       <tbody>
         <tr>
           <th class="table-active">氏名</td>
-          <td><%= customer.last_name %>　<%= customer.first_name %></td>
+          <td><%= @customer.full_name %></td>
         </tr>
         <tr>
           <th class="table-active">カナ</td>
-          <td><%= customer.last_name_kana %>　<%= customer.first_name_kana %></td>
+          <td><%= @customer.full_name_kana %></td>
         </tr>
         <tr>
           <th class="table-active">郵便番号</td>
-          <td><%= customer.postal_code %></td>
+          <td><%= @customer.postal_code %></td>
         </tr>
         <tr>
           <th class="table-active">住所</td>
-          <td><%= customer.address %></td>
+          <td><%= @customer.address %></td>
         </tr>
         <tr>
           <th class="table-active">電話番号</td>
-          <td><%= customer.telephone_number %></td>
+          <td><%= @customer.telephone_number %></td>
         </tr>
         <tr>
           <th class="table-active">メールアドレス</td>
-          <td><%= customer.email %></td>
+          <td><%= @customer.email %></td>
         </tr>
       </tbody>
     </table>
   </div>
-  <% end %>
 
   <div class="row my-3 justify-content-start">
     <label class="font-weight-bold col-1">配送先</label>

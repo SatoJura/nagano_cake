@@ -3,6 +3,10 @@ class Customer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
+  belongs_to :cart_item
+  belongs_to :order
+  belongs_to :address
 
   enum is_active: { 有効: true, 退会: false}
 

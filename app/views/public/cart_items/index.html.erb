@@ -16,24 +16,26 @@
         </thead>
         <tbody>
           <% @cart_items.each do |cart_item| %>
-          <tr>
-            <td><%= cart_item.item.name %></td>
-
-            <td><%= cart_item.item.add_tax_price.to_s(:delimited) %></td>
-
-            <td class="form-group">
-              <%= form_with model: cart_item, local: true do |f| %>
-              <div class="btn-group">
-                <%= f.select :amount, * [1..10], class: "form-control" %>
-              </div>
-              <div class="btn-group">
-                <%= f.submit "変更", class:"btn btn-success px-2" %>
-              </div>
-              <% end %>
-            </td>
-
-            <td><%= cart_item.subtotal.to_s(:delimited) %></td>
-          </tr>
+            <tr>
+              <td><%= cart_item.item.name %></td>
+  
+              <td><%= cart_item.item.add_tax_price.to_s(:delimited) %></td>
+  
+              <td class="form-group">
+                <%= form_with model: cart_item, local: true do |f| %>
+                <div class="btn-group">
+                  <%= f.select :amount, * [1..10], class: "form-control" %>
+                </div>
+                <div class="btn-group">
+                  <%= f.submit "変更", class:"btn btn-success px-2" %>
+                </div>
+                <% end %>
+              </td>
+  
+              <td><%= cart_item.subtotal.to_s(:delimited) %></td>
+              
+              <td><%= link_to "削除する", cart_item_path(cart_item), method: :delete, class:"btn btn-sm btn-danger p-2", "data-confirm" => "本当に消しますか？" %></td>
+            </tr>
           <% end %>
         </tbody>
       </table>

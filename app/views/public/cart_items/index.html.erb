@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row mb-3">
-    <div class="col text-right">
+    <div class="col-md-12 text-right">
       <%= link_to "カートを空にする", cart_items_destroy_all_path(@cart_items), method: :delete, class:"btn btn-sm btn-danger p-2", "data-confirm" => "カートを空にしますか？" %>
     </div>
   </div>
   <div class="row">
-    <div class="col">
+    <div class="col-md-12">
       <table class="table table-bordered">
         <thead class="thead-light">
           <tr>
@@ -41,6 +41,24 @@
           <% end %>
         </tbody>
       </table>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-12 d-flex flex-row">
+      <div class="col-md-4">
+        <%= link_to "買い物を続ける", root_path, class:"btn btn-sm btn-primary p-2" %>
+      </div>
+      <div class="col-md-4 offset-md-4">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <th>合計金額</th>
+              <td><%= @total.to_s(:delimited) %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
     </div>
   </div>
 </div>

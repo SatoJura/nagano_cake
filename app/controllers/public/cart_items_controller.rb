@@ -1,8 +1,15 @@
 class Public::CartItemsController < ApplicationController
   def index
+    @cart_items = CartItem.all
+    # @cart_items = current_customer.cart_items
   end
 
   def update
+    @cart_item = CartItem.find(params[:id])
+    if @cart_item.update(cart_item_params)
+      flash[:notice]="個数を変更しました"
+      redirect_to cart_items_path
+    end
   end
 
   def destroy
@@ -12,11 +19,15 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
-    @cart_item.save
-    redirect_to cart_items_path
+    if @cart_item.save
+      redirect_to cart_items_path
+    else
+      @genre = Genre.all
+      @item = Item.find(params[:cart_item][:item_id])
+      render 'public/items/show'
+    end
   end
 
   private

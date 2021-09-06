@@ -14,7 +14,7 @@
       <%= form_with model:@cart_item, url: cart_items_path, method: :post, local:true do |f| %>
         <%= f.hidden_field :item_id, value: @item.id %>
         <div class="col-md-4 btn-group">
-          <%= f.select :amount, * [1..10], { include_blank: "個数選択" }, class:"form-control" %>
+          <%= f.select :amount, * [1..10], { :prompt => "個数選択" }, class:"form-control" %>
         </div>
         <div class="col-md-5 btn-group">
           <%= f.submit "カートに入れる", class:"btn btn-success px-2" %>

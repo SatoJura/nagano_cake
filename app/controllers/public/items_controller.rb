@@ -1,7 +1,8 @@
 class Public::ItemsController < ApplicationController
   def index
     @genre = Genre.all
-    @items = Item.all
+    @items = Item.page(params[:page]).reverse_order
+    @total = Item.count
   end
 
   def show

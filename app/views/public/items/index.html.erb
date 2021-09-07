@@ -3,9 +3,13 @@
     <%= render "public/items/genre_find", genre: @genre %>
     
     <div class="col-md-8">
-      <h3><strong>商品一覧</strong>（全　件）</h3>
+      <span class="d-flex align-items-end">
+        <h3><strong>商品一覧</strong></h3>
+        <p class="h5 ">（全<%= @total %>件）</p>
+      </span>
       <div class="d-flex">
         <%= render "public/items/item", items: @items %>
+        <%= paginate @items %>
       </div>
     </div>
     

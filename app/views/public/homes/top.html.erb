@@ -9,23 +9,9 @@
   <div class="row">
     <div class="col-md-8 offset-md-3 my-3">
       <h3><strong>新着商品</strong></h3>
-      <% @items.each do |item| %>
-      <table>
-        <tbody>
-          <tr>
-            <td>
-            <%= attachment_image_tag item,:image, :fill, 200, 150, fallback: "no_image_clock.jpeg" %>
-            </td>
-          </tr>
-          <tr>
-            <td><%= item.name %></td>
-          </tr>
-          <tr>
-            <td>¥<%= item.add_tax_price.to_s(:delimited) %>（税込）</td>
-          </tr>
-        </tbody>
-      </table>
-      <% end %>
+      <div class="d-flex">
+        <%= render "public/items/item", items: @items %>
+      </div>
     </div>
   </div>
 </div>

@@ -2,7 +2,7 @@
   <div class="row">
     <%= render "public/items/genre_find", genre: @genre %>
 
-    <div class="col-md-7 top-content">
+    <div class="col-md-7 d-flex align-items-center justify-content-center top-content">
       <p class="">
         ようこそ、ながのCAKEへ！</br>
         このサイトは、ケーキ販売のECサイトになります。</br>
@@ -16,6 +16,10 @@
       <h3><strong>新着商品</strong></h3>
       <div class="d-flex">
         <%= render "public/items/item", items: @items %>
+        <% paginate @items %>
+      </div>
+      <div class="text-right">
+        <%= link_to "全ての商品を見る>", items_path %>
       </div>
     </div>
   </div>

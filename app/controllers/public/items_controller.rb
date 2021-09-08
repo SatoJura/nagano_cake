@@ -1,7 +1,8 @@
 class Public::ItemsController < ApplicationController
   def index
     @genre = Genre.all
-    @items = Item.page(params[:page]).reverse_order
+    # kaminari使うためall→page~に変更
+    @items = Item.page(params[:page]).reverse_order.per(6)
     @total = Item.count
   end
 

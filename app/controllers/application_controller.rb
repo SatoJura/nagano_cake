@@ -10,7 +10,20 @@ class ApplicationController < ActionController::Base
       admin_path
     else
       flash[:notice] = "会員新規登録が完了しました"
-      customers_my_page_pathh
+      customers_my_page_path
+    end
+  end
+
+# 各sign_out後の遷移先が指定できない
+  def after_sign_out_path_for(resource)
+    if current_customer
+      flash[:notice] = "会員ログアウトに成功しました"
+      root_path
+    elsif @admin
+      flash[:notice] = "管理者ログアウトに成功しました"
+      new_admin_session_path
+    else
+      root_path
     end
   end
 

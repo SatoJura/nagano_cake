@@ -7,10 +7,10 @@
         <h3><strong>商品一覧</strong></h3>
         <p class="h5 ">（全<%= @total %>件）</p>
       </span>
-      <div class="d-flex">
+      <div class="d-flex flex-wrap">
         <%= render "public/items/item", items: @items %>
-        <%= paginate @items %>
       </div>
+      <%= paginate @items %>
     </div>
     
   </div>

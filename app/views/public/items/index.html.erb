@@ -10,7 +10,9 @@
       <div class="d-flex flex-wrap">
         <%= render "public/items/item", items: @items %>
       </div>
-      <%= paginate @items %>
+      <div class="d-flex justify-content-center">
+        <%= paginate @items %>
+      </div>
     </div>
     
   </div>

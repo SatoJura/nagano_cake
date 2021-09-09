@@ -14,7 +14,11 @@ Rails.application.routes.draw do
  end
 
   # 会員側
-  devise_for :customers
+  devise_for :customers, skip: [:registrations]
+  as :customer do
+    get 'customers/sign_up' => 'devise/registrations#new', as: :new_customer_registration
+    post 'customers' => 'devise/registrations#create', as: :customer_registration
+  end
 
   scope module: :public do
     resource :customers, only: [:edit, :update]

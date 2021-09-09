@@ -7,6 +7,14 @@ class Customer < ApplicationRecord
   has_many :cart_items, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :addresses, dependent: :destroy
+  
+  validates :last_name, presence: true
+  validates :first_name, presence: true
+  validates :last_name_kana, presence: true
+  validates :first_name_kana, presence: true
+  validates :postal_code, numericality: { only_integer: true}
+  validates :address, presence: true
+  validates :telephone_number, numericality: { only_integer: true}
 
   enum is_active: { 有効: true, 退会: false}
 

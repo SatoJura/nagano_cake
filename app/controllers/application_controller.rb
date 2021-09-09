@@ -11,10 +11,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-      # flash[:notice] = "会員登録に成功しました"
-      # customers_my_page_path
-
-
   def after_sign_out_path_for(resource)
     if resource == :customer
       flash[:notice] = "会員ログアウトに成功しました"

@@ -17,11 +17,15 @@ class Public::CustomersController < ApplicationController
   end
 
   def unsubscribe
-
+    @customer = current_customer
   end
 
   def change
-
+    @customer = current_customer
+    @customer.update(is_active: false)
+    reset_session
+    flash[:notice]="退会しました"
+    redirect_to root_path
   end
 
   private

@@ -34,6 +34,17 @@ class Public::AddressesController < ApplicationController
   end
 
   def destroy
+    @address = Address.find(params[:id])
+    @address.customer_id = current_customer.id
+    if @address.destroy
+      flash[:notice]="登録済みの住所を１件削除しました"
+      redirect_to addresses_path
+    else
+      @address = Address.new
+      @addresses = current_customer.addresses
+      flash.now[:notice]="削除できませんでした"
+      render "index"
+    end
   end
 
   private

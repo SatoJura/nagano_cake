@@ -32,7 +32,7 @@
           <td><%= addresses.name %></td>
           <td>
             <%= link_to "編集する", edit_address_path(addresses.id), class: "btn btn-success" %>
-            <%#= link_to "削除する", address_path(address), method: :delete, class: "btn btn-danger" %>
+            <%= link_to "削除する", address_path(addresses.id), method: :delete, class: "btn btn-danger", "data-confirm" => "本当に削除しますか？" %>
           </td>
         </tr>
         <% end %>

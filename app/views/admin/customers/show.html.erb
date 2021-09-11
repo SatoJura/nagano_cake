@@ -33,7 +33,7 @@
           </tr>
           <tr>
             <td>会員ステータス</td>
-            <td class="text-success font-weight-bold"><%= @customer.is_active %></td>
+            <td class="text-success font-weight-bold"><%= @customer.is_active ? '有効' : '' %></td>
           </tr>
         </tbody>
       </table>

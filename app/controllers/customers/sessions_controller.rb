@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Customers::SessionsController < Devise::SessionsController
-  bofore_action :reject_customer, only: [:create]
+  before_action :reject_customer, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -22,7 +22,7 @@ class Customers::SessionsController < Devise::SessionsController
   protected
   
   def reject_customer
-    @customer = Customer.find_by(email: [:customer][:email])
+    @customer = Customer.find_by(email: params[:customer][:email])
     if @customer
       if @customer.valid_password?(params[:customer][:password]) && !@customer.is_active
       redirect_to root_path

@@ -16,8 +16,6 @@ class Customer < ApplicationRecord
   validates :address, presence: true
   validates :telephone_number, numericality: { only_integer: true}
 
-  enum is_active: { 有効: true, 退会: false}
-
   def full_name
     self.last_name + " " + self.first_name
   end

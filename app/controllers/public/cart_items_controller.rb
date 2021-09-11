@@ -1,6 +1,5 @@
 class Public::CartItemsController < ApplicationController
   def index
-    # binding.pry
     @cart_items = current_customer.cart_items
     @total = @cart_items.sum(&:subtotal)
   end
@@ -15,14 +14,26 @@ class Public::CartItemsController < ApplicationController
 
   def destroy
     cart_item = CartItem.find(params[:id])
-    cart_item.destroy
-    redirect_to cart_items_path
+    if cart_item.destroy
+      flash[:notice]="カート内の商品を削除しました"
+      redirect_to cart_items_path
+    else
+      @total = @cart_items.sum(&:subtotal)
+      flash[:notice]="カート内の商品を削除できませんでした"
+      render "index"
+    end
   end
 
   def destroy_all
     @cart_items = current_customer.cart_items
-    @cart_items.destroy_all
-    redirect_to cart_items_path
+    if @cart_items.destroy_all
+      flash[:notice]="カート内を空にしました"
+      redirect_to cart_items_path
+    else
+      @total = @cart_items.sum(&:subtotal)
+      flash[:notice]="カート内を空にできませんでした"
+      render "index"
+    end
   end
 
   def create

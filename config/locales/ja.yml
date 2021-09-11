@@ -4,18 +4,3 @@ ja:
       payment_method:
         credit_card: 'クレジットカード'
         transfer: '銀行振込'
-
-ja:
-  enums:
-    item:
-      is_active:
-        true: '販売中'
-        false: '販売停止中'
-        
-
-ja:
-  enums:
-    customer:
-      is_active:
-        true: '有効'
-        false: '退会'

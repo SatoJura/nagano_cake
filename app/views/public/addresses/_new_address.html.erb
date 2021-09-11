@@ -1,0 +1,24 @@
+<div class="form-group d-flex">
+  <div class="col-md-4">
+    <%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
+  </div>
+  <div class="col-md-4">
+    <%= f.text_field :postal_code, class: "form-control", placeholder: "0000000" %>
+  </div>
+</div>
+<div class="form-group d-flex">
+  <div class="col-md-4">
+    <%= f.label :address, "住所"%>
+  </div>
+  <div class="col-md-8">
+    <%= f.text_field :address, class: "form-control", size: 40,  placeholder: "神奈川県横浜市みなとみらい0-0" %>
+  </div>
+</div>
+<div class="form-group d-flex">
+  <div class="col-md-4">
+    <%= f.label :name, "宛名" %>
+  </div>
+  <div class="col-md-4">
+    <%= f.text_field :name, class: "form-control", placeholder: "令和道子" %>
+  </div>
+</div>

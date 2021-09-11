@@ -1,2 +1,16 @@
-<h1>Public::Addresses#edit</h1>
-<p>Find me in app/views/public/addresses/edit.html.erb</p>
+<div class="container">
+  <div class="row mb-3">
+    <h4>配送先編集</h4>
+  </div>
+
+<%= form_with model: @address, url: address_path(@address), method: :patch, local: true do |f| %>
+  <div class="row">
+    <div class="col-md-10">
+      <%= render :partial => "public/addresses/new_address", :locals => {:f => f} %>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-end mx-auto">
+    <%= f.submit "変更内容を保存", class:"btn btn-success"%>
+  </div>
+<% end %>
+</div>

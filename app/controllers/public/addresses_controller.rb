@@ -5,9 +5,6 @@ class Public::AddressesController < ApplicationController
     @addresses = current_customer.addresses
   end
 
-  def edit
-  end
-
   def create
     @address = Address.new(address_params)
     @address.customer_id = current_customer.id
@@ -20,8 +17,20 @@ class Public::AddressesController < ApplicationController
       render "index"
     end
   end
+  
+  def edit
+    @address = Address.find(params[:id])
+  end
 
   def update
+    @address = Address.find(params[:id])
+    if @address.update(address_params)
+      flash[:notice]="編集が成功しました"
+      redirect_to addresses_path
+    else
+      flash.now[:notice]="編集できませんでした"
+      render "edit"
+    end
   end
 
   def destroy

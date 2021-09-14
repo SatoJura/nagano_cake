@@ -11,11 +11,19 @@
           </tr>
         </thead>
         <tbody>
+          <% @orders.each do |order| %>
           <tr>
-            <th></th>
+            <td><%= order.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+            <td><%= order.customer.full_name %></td>
+            <td><%#= order.order_details.amount %></td>
+            <td><%= order.order_status_i18n %></td>
           </tr>
+          <% end %>
         </tbody>
       </table>
+      <div class="d-flex justify-content-center">
+        <%= paginate @orders %>
+      </div>
     </div>
   </div>
 </div>

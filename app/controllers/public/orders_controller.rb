@@ -38,12 +38,13 @@ class Public::OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
+    @order.delivery_fee = 800
     if @order.save
     # cart_itemsから@order_detailに情報を移行し、cart_itemsを削除
       current_customer.cart_items.each do |cart_item|
         @order_detail = @order.order_details.new
         @order_detail.item_id = cart_item.item_id
-        @order_detail.price = cart_item.item.price
+        @order_detail.price = cart_item.item.add_tax_price
         @order_detail.amount = cart_item.amount
         @order_detail.save
       end
@@ -61,6 +62,11 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
+    @sum = 0
+    @order.order_details.each do |order_detail|
+      @sum += order_detail.amount * order_detail.price
+    end
   end
 
   private

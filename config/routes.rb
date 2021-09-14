@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :items, except: [:destroy]
     resources :orders, only: [:show, :update]
     resources :customers, only: [:index,:show,:edit,:update]
+    resources :order_details, only: [:update]
  end
 
   # 会員側
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
     get 'customers/sign_up' => 'customers/registrations#new', as: :new_customer_registration
     post 'customers' => 'customers/registrations#create', as: :customer_registration
   end
-  
+
   scope module: :public do
     resource :customers, only: [:edit, :update]
     get "customers/my_page" => "customers#show"

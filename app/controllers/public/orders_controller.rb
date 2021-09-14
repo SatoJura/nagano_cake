@@ -3,7 +3,7 @@ class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
   end
-  
+
   def confirm
     @cart_items = current_customer.cart_items
     @order = Order.new(order_params)
@@ -18,9 +18,14 @@ class Public::OrdersController < ApplicationController
       @order.address = @address.address
       @order.name = @address.name
     else
-      @order.postal_code = params[:order][:postal_code]
-      @order.address = params[:order][:address]
-      @order.name = params[:order][:name]
+      if params[:order][:postal_code] && params[:order][:address] && params[:order][:name].present?
+        @order.postal_code = params[:order][:postal_code]
+        @order.address = params[:order][:address]
+        @order.name = params[:order][:name]
+      else
+        flash.now[:error]="必須項目を入力してください"
+        render "new"
+      end
     end
     @order.delivery_fee = 800
     @sum = @cart_items.sum(&:subtotal)
@@ -34,15 +39,25 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     if @order.save
+    # cart_itemsから@order_detailに情報を移行し、cart_itemsを削除
+      current_customer.cart_items.each do |cart_item|
+        @order_detail = @order.order_details.new
+        @order_detail.item_id = cart_item.item_id
+        @order_detail.price = cart_item.item.price
+        @order_detail.amount = cart_item.amount
+        @order_detail.save
+      end
+      current_customer.cart_items.destroy_all
       redirect_to orders_thanks_path
     else
       @order = Order.new
-      flash.now[:notice]="注文できませんでした。注文情報を入力してください"
+      flash.now[:notice]="注文できませんでした。注文情報を入力してください。"
       render "new"
     end
   end
 
   def index
+    @orders = current_customer.orders
   end
 
   def show

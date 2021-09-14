@@ -20,7 +20,7 @@ class Public::CartItemsController < ApplicationController
       redirect_to cart_items_path
     else
       @total = @cart_items.sum(&:subtotal)
-      flash[:notice]="カート内の商品を削除できませんでした"
+      flash.now[:notice]="カート内の商品を削除できませんでした"
       render "index"
     end
   end
@@ -32,7 +32,7 @@ class Public::CartItemsController < ApplicationController
       redirect_to cart_items_path
     else
       @total = @cart_items.sum(&:subtotal)
-      flash[:notice]="カート内を空にできませんでした"
+      flash.now[:notice]="カート内を空にできませんでした"
       render "index"
     end
   end

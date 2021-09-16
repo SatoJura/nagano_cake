@@ -1,0 +1,10 @@
+<% if customer.errors.any? %>
+  <div id="error_explanation">
+    <h3>入力必須項目が<%= pluralize(customer.errors.count, "件") %> あります</h3>
+    <ul>
+      <% customer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

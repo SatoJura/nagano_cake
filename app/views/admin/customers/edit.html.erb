@@ -1,5 +1,6 @@
 <div class="container">
     <!--エラー文-->
+    <%= render "admin/customers/error_msg", customer: @customer%>
     
   <%= form_with model: @customer, url: admin_customer_path, local: true  do |f| %>
     <div class="form-group row">

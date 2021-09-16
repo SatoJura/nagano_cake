@@ -1,8 +1,10 @@
 <div class="container">
+  <!--エラー文-->
+  <%= render "admin/customers/error_msg", customer: @customer %>
+
   <span class="row my-3">
     <h4>会員情報編集</h4>
   </span>
-
   <%= form_with model: @customer, url: customers_path, local: true  do |f| %>
   <div class="form-group row">
     <label class="col-md-3">氏名</label>

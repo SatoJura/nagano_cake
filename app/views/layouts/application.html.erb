@@ -25,52 +25,54 @@
             <% end %>
           </div>
 
-          <div class="col-md-6">
-            <ul class="navbar-nav float-right">
-              <% if customer_signed_in? %>
-                 <li class="nav-item">
-                  <%= link_to "マイページ", customers_my_page_path, class: "nav-link btn border px-3 mr-3" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "商品一覧", items_path, class: "nav-link btn border px-3 mr-3" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "カート", cart_items_path, class: "nav-link btn border px-3 mr-3" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link btn border px-3" %>
-                </li>
-              <% elsif admin_signed_in? %>
-                <li class="nav-item">
-                  <%= link_to "商品一覧", admin_items_path, class: "nav-link btn border px-3 mr-3" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "会員一覧", admin_customers_path, class: "nav-link btn border px-3 mr-3" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "注文履歴一覧", admin_path, class: "nav-link btn border px-3 mr-3" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "ジャンル一覧", admin_genres_path, class: "nav-link btn border px-3 mr-3" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link btn border px-3" %>
-                </li>
-              <% else%>
-                <li class="nav-item">
-                  <%= link_to "About", about_path, class: "nav-link btn border px-3 mr-3"%>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "商品一覧", items_path, class: "nav-link btn border px-3 mr-3" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "新規登録", new_customer_registration_path, class: "nav-link btn border px-3 mr-3" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "ログイン", new_customer_session_path, class: "nav-link btn border px-3" %>
-                </li>
-              <% end %>
-            </ul>
+          <div class="col-md-7">
+            <div class="float-right">
+              <ul class="navbar-nav">
+                <% if customer_signed_in? %>
+                   <li class="nav-item">
+                    <%= link_to "マイページ", customers_my_page_path, class: "nav-link btn border px-3 mr-3" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "商品一覧", items_path, class: "nav-link btn border px-3 mr-3" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "カート", cart_items_path, class: "nav-link btn border px-3 mr-3" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link btn border px-3" %>
+                  </li>
+                <% elsif admin_signed_in? %>
+                  <li class="nav-item">
+                    <%= link_to "商品一覧", admin_items_path, class: "nav-link btn border px-3 mr-2" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "会員一覧", admin_customers_path, class: "nav-link btn border px-3 mr-2" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "注文履歴一覧", admin_path, class: "nav-link btn border px-3 mr-2" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "ジャンル一覧", admin_genres_path, class: "nav-link btn border px-3 mr-2" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link btn border px-3" %>
+                  </li>
+                <% else%>
+                  <li class="nav-item">
+                    <%= link_to "About", about_path, class: "nav-link btn border px-3 mr-3"%>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "商品一覧", items_path, class: "nav-link btn border px-3 mr-3" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "新規登録", new_customer_registration_path, class: "nav-link btn border px-3 mr-3" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "ログイン", new_customer_session_path, class: "nav-link btn border px-3" %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
 
             <div class="float-right mt-2">
             <%#= form_tag admin_genres_path, method: :get do %>
@@ -90,7 +92,7 @@
         <%= yield %>
     </main>
 
-    <footer">
+    <footer>
     </footer>
   </body>
 </html>
